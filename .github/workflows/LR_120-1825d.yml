@@ -1,0 +1,27 @@
+name: Run LR_120-1825d Every 3 Days
+
+on:
+  schedule:
+    - cron: "30 6,18 */3 * *"  # Runs at 06:30 UTC & 18:30 UTC every 3rd day
+
+  workflow_dispatch:  # Allows manual trigger
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.13'  # Change this if needed
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run the script
+        run: python LR_120-1825d/pyarmor_runtime_000000/___init___.py
