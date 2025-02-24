@@ -1,2 +1,8 @@
 discord.py
 asyncio
+yfinance
+pandas
+numpy
+matplotlib
+scikit-learn
+requests
