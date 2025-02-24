@@ -1,0 +1,26 @@
+name: Run LR_21-90d Every 12 Hours
+
+on:
+  schedule:
+    - cron: "30 6,18 * * *"  # Runs at 06:30 UTC (12:00 PM IST) and 18:30 UTC (12:00 AM IST)
+  workflow_dispatch:  # Allows manual trigger
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.13'  # Change this if needed
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run the script
+        run: python LR_21-90d/pyarmor_runtime_000000/___init___.py
