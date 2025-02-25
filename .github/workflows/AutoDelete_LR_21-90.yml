@@ -2,7 +2,7 @@ name: Run AutoDelete_LR_21-90 Every 6 Hours
 
 on:
   schedule:
-    - cron: "0 */6 * * *"  # Runs every 6 hours
+    - cron: "0 */1 * * *"  # Runs every 6 hours
   workflow_dispatch:  # Allows manual trigger
 
 jobs:
